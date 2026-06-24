@@ -1,0 +1,11 @@
+experiment,benchmark,seed,number_of_cities,population_size,max_iterations,rho,temperature_start,temperature_min,function_evaluations,best_fitness,known_optimum,absolute_gap,gap_percent,success,runtime_seconds,accepted_worse,rejected_worse,case_a,case_b,general,best_route
+baseline_parameters_v1,rectangle_6,1,6,10,200,0.1,0.1,0.001,2010,10.0,10.0,0.0,0.0,yes,0.03364590000273893,159,1632,1612,10,378,"[0, 1, 2, 3, 4, 5]"
+baseline_parameters_v1,rectangle_6,2,6,10,200,0.1,0.1,0.001,2010,10.0,10.0,0.0,0.0,yes,0.030457499997282866,158,1648,1655,15,330,"[0, 1, 2, 3, 4, 5]"
+baseline_parameters_v1,rectangle_6,3,6,10,200,0.1,0.1,0.001,2010,10.0,10.0,0.0,0.0,yes,0.030350500001077307,152,1679,1677,10,313,"[0, 1, 2, 3, 4, 5]"
+baseline_parameters_v1,rectangle_6,4,6,10,200,0.1,0.1,0.001,2010,10.0,10.0,0.0,0.0,yes,0.029296900000190362,134,1696,1708,20,272,"[0, 1, 2, 3, 4, 5]"
+baseline_parameters_v1,rectangle_6,5,6,10,200,0.1,0.1,0.001,2010,10.0,10.0,0.0,0.0,yes,0.030820299998595146,156,1664,1657,11,332,"[0, 1, 2, 3, 4, 5]"
+baseline_parameters_v1,rectangle_6,6,6,10,200,0.1,0.1,0.001,2010,10.0,10.0,0.0,0.0,yes,0.030755800002225442,162,1654,1693,12,295,"[0, 1, 2, 3, 4, 5]"
+baseline_parameters_v1,rectangle_6,7,6,10,200,0.1,0.1,0.001,2010,10.0,10.0,0.0,0.0,yes,0.03299909999986994,162,1632,1619,15,366,"[0, 1, 2, 3, 4, 5]"
+baseline_parameters_v1,rectangle_6,8,6,10,200,0.1,0.1,0.001,2010,10.0,10.0,0.0,0.0,yes,0.030479101002129028,143,1668,1695,19,286,"[0, 1, 2, 3, 4, 5]"
+baseline_parameters_v1,rectangle_6,9,6,10,200,0.1,0.1,0.001,2010,10.0,10.0,0.0,0.0,yes,0.0330893999998807,167,1628,1622,11,367,"[0, 1, 2, 3, 4, 5]"
+baseline_parameters_v1,rectangle_6,10,6,10,200,0.1,0.1,0.001,2010,10.0,10.0,0.0,0.0,yes,0.03540200000134064,164,1619,1619,16,365,"[0, 1, 2, 3, 4, 5]"

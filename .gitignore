@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.vscode/
+.idea/
+.pytest_cache/
+*.tmp
+*.bak
+.cleanup_backups/
+docs/references/*.pdf

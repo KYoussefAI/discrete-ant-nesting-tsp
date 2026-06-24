@@ -1,0 +1,2 @@
+experiment,benchmark,number_of_cities,number_of_runs,population_size,max_iterations,rho,temperature_start,temperature_min,best_fitness,mean_fitness,median_fitness,standard_deviation,worst_fitness,best_gap_percent,mean_gap_percent,worst_gap_percent,success_count,success_percentage,mean_runtime_seconds
+baseline_parameters_v1,berlin52,52,10,60,3000,0.08,0.06,0.0005,9850,10725.6,10476.0,883.1938506227145,12839,30.60196234420578,42.21161495624503,70.23335985149828,0,0.0,9.515084411699718

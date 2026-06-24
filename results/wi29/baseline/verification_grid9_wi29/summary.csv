@@ -1,0 +1,2 @@
+experiment,benchmark,number_of_cities,number_of_runs,population_size,max_iterations,rho,temperature_start,temperature_min,best_fitness,mean_fitness,median_fitness,standard_deviation,worst_fitness,best_gap_percent,mean_gap_percent,worst_gap_percent,success_count,success_percentage,mean_runtime_seconds
+verification_grid9_wi29,wi29,29,30,20,500,0.1,0.1,0.001,29205,35860.73333333333,34694.0,4499.910236141754,45847,5.803716987283991,29.916071924549264,66.09426511611056,0,0.0,0.4737264968668266

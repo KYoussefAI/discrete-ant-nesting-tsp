@@ -1,0 +1,2 @@
+benchmark,population_size,max_iterations,rho,temperature_start,temperature_min,total_ant_updates,mean_fitness,best_gap_percent,mean_gap_percent,worst_gap_percent,gap_standard_deviation,score,validation_valid_runs,validation_mean_fitness,validation_best_gap_percent,validation_mean_gap_percent,validation_worst_gap_percent,validation_gap_standard_deviation
+wi29,30,6666,0.15,0.01,0.0001,199980,31732.2,3.5612071151686413,14.959243560482555,31.19226171068362,10.263611631487576,17.52514646835445,10,34060.2,0.0,23.393109444625583,70.29308408506321,21.344665370270416

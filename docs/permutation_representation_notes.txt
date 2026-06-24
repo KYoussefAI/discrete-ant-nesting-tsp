@@ -1,0 +1,4 @@
+Incompatible solution representation - contraints not achieved ( missing cities / duplicates / out of range ... )
+We must define a discrete tour difference D(Xi​,Xbest​) - could be : ( Swap-sequence difference / Insertion-sequence difference ... )
+No discrete meaning for scalar multiplication dw : dw scales the strength of discrete tour modifications instead ( if big -> big discrete changes )
+Deposition-weight equations are unsuitable for permutation space : Incompatible units / Negative value under the square root / Division by zero / Scale sensitivity

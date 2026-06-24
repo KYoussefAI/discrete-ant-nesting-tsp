@@ -1,0 +1,23 @@
+### Limitation of the Positional Swap-Based Movement in the Discrete ANA-TSP
+
+In the current discrete adaptation of the Ant Nesting Algorithm, the difference between an ant’s route and the global-best route is represented by an ordered sequence of positional swaps. Applying the complete swap sequence transforms the current permutation exactly into the global-best permutation. Therefore, the full movement is guaranteed to reach the best route currently known.
+
+However, ANA usually applies only a fraction of this swap sequence according to the calculated movement magnitude. A partial swap sequence guarantees only that fewer positional swaps remain before the current route matches the global-best route. It does not guarantee an improvement in TSP fitness.
+
+This happens because two different notions of distance are involved:
+
+* **Permutation distance:** the number of positional swaps required to transform one route into another.
+* **Objective distance:** the total Euclidean length of the cyclic tour.
+
+The TSP fitness is calculated from the Euclidean distances between consecutive cities in the route. It therefore depends on the edges, or neighboring-city connections, created by the permutation. A positional swap can place cities closer to their positions in the global-best permutation while simultaneously destroying several short and useful edges. As a result, the new route may require fewer swaps to reach the best permutation but still have a larger total Euclidean distance.
+
+The fitness function itself remains correct. Every generated route is evaluated using the sum of its Euclidean edge costs. The limitation concerns the movement operator: reducing positional swap distance is not reliably correlated with reducing tour length.
+
+This creates a practical difficulty. A sequence of guided swaps may eventually reach the global-best route, but an intermediate partial route can be worse than the ant’s current route. If that intermediate route is rejected by the acceptance mechanism, the ant cannot continue through the remaining swaps that would have led to the better solution.
+
+Therefore, the main structural limitation is not the choice of TSPLIB benchmark or the Euclidean fitness calculation. It is the mismatch between:
+
+* a movement mechanism based mainly on city positions; and
+* a TSP objective based on neighboring-city edges.
+
+Small TSP instances may hide this limitation because their search spaces are small. Medium and large instances reveal it more clearly because effective search increasingly depends on movement operators that preserve or improve useful route edges.

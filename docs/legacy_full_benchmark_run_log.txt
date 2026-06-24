@@ -1,0 +1,215 @@
+(youssef) youssef@Youssef:/mnt/e/projects/metaheuristics/ANA/simple_discrete_ana_tsp$ python main.py
+Experiment: baseline_parameters_v1
+Selected benchmarks:
+- square_4
+- rectangle_6
+- grid_9
+- wi29
+- dj38
+- berlin52
+- qa194
+Benchmark: square_4
+Runs: 10
+Population size: 10
+Iterations: 100
+Rho: 0.1
+Temperature start: 0.1
+Temperature minimum: 0.001
+Run 1 of 10
+Run 2 of 10
+Run 3 of 10
+Run 4 of 10
+Run 5 of 10
+Run 6 of 10
+Run 7 of 10
+Run 8 of 10
+Run 9 of 10
+Run 10 of 10
+Best fitness: 4.0
+Average fitness: 4.0
+Worst fitness: 4.0
+Best gap: 0.0
+Average gap: 0.0
+Success count: 10
+Success percentage: 100.0
+Average runtime: 0.012398630100506125
+Runs CSV: results/baseline_parameters_v1_square_4_runs.csv
+Summary CSV: results/baseline_parameters_v1_square_4_summary.csv
+Benchmark: rectangle_6
+Runs: 10
+Population size: 10
+Iterations: 200
+Rho: 0.1
+Temperature start: 0.1
+Temperature minimum: 0.001
+Run 1 of 10
+Run 2 of 10
+Run 3 of 10
+Run 4 of 10
+Run 5 of 10
+Run 6 of 10
+Run 7 of 10
+Run 8 of 10
+Run 9 of 10
+Run 10 of 10
+Best fitness: 10.0
+Average fitness: 10.0
+Worst fitness: 10.0
+Best gap: 0.0
+Average gap: 0.0
+Success count: 10
+Success percentage: 100.0
+Average runtime: 0.03172965010053304
+Runs CSV: results/baseline_parameters_v1_rectangle_6_runs.csv
+Summary CSV: results/baseline_parameters_v1_rectangle_6_summary.csv
+Benchmark: grid_9
+Runs: 30
+Population size: 20
+Iterations: 700
+Rho: 0.1
+Temperature start: 0.08
+Temperature minimum: 0.001
+Run 1 of 30
+Run 2 of 30
+Run 3 of 30
+Run 4 of 30
+Run 5 of 30
+Run 6 of 30
+Run 7 of 30
+Run 8 of 30
+Run 9 of 30
+Run 10 of 30
+Run 11 of 30
+Run 12 of 30
+Run 13 of 30
+Run 14 of 30
+Run 15 of 30
+Run 16 of 30
+Run 17 of 30
+Run 18 of 30
+Run 19 of 30
+Run 20 of 30
+Run 21 of 30
+Run 22 of 30
+Run 23 of 30
+Run 24 of 30
+Run 25 of 30
+Run 26 of 30
+Run 27 of 30
+Run 28 of 30
+Run 29 of 30
+Run 30 of 30
+Best fitness: 9.414213562373096
+Average fitness: 9.511844635310913
+Worst fitness: 10.0
+Best gap: 0.0
+Average gap: 1.0370603162013559
+Success count: 25
+Success percentage: 83.33333333333333
+Average runtime: 0.2471394544660143
+Runs CSV: results/baseline_parameters_v1_grid_9_runs.csv
+Summary CSV: results/baseline_parameters_v1_grid_9_summary.csv
+Benchmark: wi29
+Runs: 10
+Population size: 40
+Iterations: 2000
+Rho: 0.12
+Temperature start: 0.08
+Temperature minimum: 0.0005
+Run 1 of 10
+Run 2 of 10
+Run 3 of 10
+Run 4 of 10
+Run 5 of 10
+Run 6 of 10
+Run 7 of 10
+Run 8 of 10
+Run 9 of 10
+Run 10 of 10
+Best fitness: 29520
+Average fitness: 34321.1
+Worst fitness: 40206
+Best gap: 6.944897293772416
+Average gap: 24.3382965619679
+Success count: 0
+Success percentage: 0.0
+Average runtime: 2.619865899900469
+Runs CSV: results/baseline_parameters_v1_wi29_runs.csv
+Summary CSV: results/baseline_parameters_v1_wi29_summary.csv
+Benchmark: dj38
+Runs: 10
+Population size: 50
+Iterations: 2500
+Rho: 0.1
+Temperature start: 0.07
+Temperature minimum: 0.0005
+Run 1 of 10
+Run 2 of 10
+Run 3 of 10
+Run 4 of 10
+Run 5 of 10
+Run 6 of 10
+Run 7 of 10
+Run 8 of 10
+Run 9 of 10
+Run 10 of 10
+Best fitness: 8772
+Average fitness: 9838.4
+Worst fitness: 10655
+Best gap: 31.790865384615383
+Average gap: 47.8125
+Success count: 0
+Success percentage: 0.0
+Average runtime: 5.0893008729999565
+Runs CSV: results/baseline_parameters_v1_dj38_runs.csv
+Summary CSV: results/baseline_parameters_v1_dj38_summary.csv
+Benchmark: berlin52
+Runs: 10
+Population size: 60
+Iterations: 3000
+Rho: 0.08
+Temperature start: 0.06
+Temperature minimum: 0.0005
+Run 1 of 10
+Run 2 of 10
+Run 3 of 10
+Run 4 of 10
+Run 5 of 10
+Run 6 of 10
+Run 7 of 10
+Run 8 of 10
+Run 9 of 10
+Run 10 of 10
+Best fitness: 9850
+Average fitness: 10725.6
+Worst fitness: 12839
+Best gap: 30.60196234420578
+Average gap: 42.21161495624503
+Success count: 0
+Success percentage: 0.0
+Average runtime: 9.515084411699718
+Runs CSV: results/baseline_parameters_v1_berlin52_runs.csv
+Summary CSV: results/baseline_parameters_v1_berlin52_summary.csv
+Benchmark: qa194
+Runs: 5
+Population size: 80
+Iterations: 3000
+Rho: 0.03
+Temperature start: 0.04
+Temperature minimum: 0.0005
+Run 1 of 5
+Run 2 of 5
+Run 3 of 5
+Run 4 of 5
+Run 5 of 5
+Best fitness: 20985
+Average fitness: 22405.4
+Worst fitness: 25442
+Best gap: 124.39050470487597
+Average gap: 139.5786997433704
+Success count: 0
+Success percentage: 0.0
+Average runtime: 63.284012669199726
+Runs CSV: results/baseline_parameters_v1_qa194_runs.csv
+Summary CSV: results/baseline_parameters_v1_qa194_summary.csv
+(youssef) youssef@Youssef:/mnt/e/projects/metaheuristics/ANA/simple_discrete_ana_tsp$ 

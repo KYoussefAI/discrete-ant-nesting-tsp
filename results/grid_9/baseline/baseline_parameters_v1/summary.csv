@@ -1,0 +1,2 @@
+experiment,benchmark,number_of_cities,number_of_runs,population_size,max_iterations,rho,temperature_start,temperature_min,best_fitness,mean_fitness,median_fitness,standard_deviation,worst_fitness,best_gap_percent,mean_gap_percent,worst_gap_percent,success_count,success_percentage,mean_runtime_seconds
+baseline_parameters_v1,grid_9,9,30,20,700,0.1,0.08,0.001,9.414213562373096,9.511844635310913,9.414213562373096,0.2220417761600057,10.0,0.0,1.0370603162013559,6.222361897208136,25,83.33333333333333,0.2471394544660143
