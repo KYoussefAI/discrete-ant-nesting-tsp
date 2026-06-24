@@ -1,0 +1,2 @@
+experiment,ana_experiment,benchmark,number_of_cities,number_of_runs,population_size,max_iterations,rho,temperature_start,temperature_min,best_fitness,mean_fitness,median_fitness,standard_deviation,worst_fitness,best_gap_percent,mean_gap_percent,worst_gap_percent,success_count,success_percentage,mean_runtime_seconds
+baseline_parameters_v1,v1,wi29,29,10,30,6666,0.15,0.01,0.0001,30237,39259.9,37531.0,7022.617610264709,53127,9.542441039017499,42.2305546498569,92.4682099771764,0,0.0,7.763782769977115

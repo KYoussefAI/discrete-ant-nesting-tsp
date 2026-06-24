@@ -10,6 +10,12 @@ sequence toward the global-best route and random-swap exploration. Fitness is
 the Euclidean tour length; configured TSPLIB instances use integer-rounded
 `EUC_2D` distances.
 
+## V1 - Inversion Exploration
+
+V1 keeps positive positional guidance and replaces random-swap exploration with
+segment inversion. The inversion length is controlled by the ANA movement
+magnitude.
+
 ## Project Structure
 
 ```text
@@ -19,6 +25,8 @@ discrete-ana-tsp/
 |-- benchmarks.py
 |-- parameter_tuning.py
 |-- tsp_problems.py
+|-- experiments/
+|   `-- ana_tsp_v1.py
 |-- data/
 |-- docs/
 `-- results/

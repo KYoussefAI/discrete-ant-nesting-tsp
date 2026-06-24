@@ -1,10 +1,9 @@
 import csv
+import importlib
 import os
 import statistics
 import time
 
-from ana_tsp import is_valid_route
-from ana_tsp import run_ana
 from tsp_problems import PROBLEMS
 
 
@@ -62,14 +61,17 @@ BENCHMARKS = {
 
 
 def load_ana_algorithm(ana_experiment):
-    if ana_experiment == "baseline":
-        return {
-            "run_ana": run_ana,
-            "is_valid_route": is_valid_route,
-        }
+    try:
+        if ana_experiment == "baseline":
+            return importlib.import_module("ana_tsp")
+        if ana_experiment == "v1":
+            return importlib.import_module("experiments.ana_tsp_v1")
+    except ImportError:
+        print("ANA experiment is not available yet:", ana_experiment)
+        return None
 
     print("Unknown ANA experiment:", ana_experiment)
-    print('Allowed values are "baseline".')
+    print('Allowed values are "baseline", "v1".')
     return None
 
 
@@ -306,7 +308,7 @@ def run_one_benchmark(
     for run_number, seed in enumerate(fixed_seeds, start=1):
         print("Run", run_number, "of", number_of_runs, "with seed", seed, flush=True)
         start_time = time.perf_counter()
-        result = ana_algorithm["run_ana"](
+        result = ana_algorithm.run_ana(
             coordinates,
             population_size,
             max_iterations,
@@ -318,7 +320,7 @@ def run_one_benchmark(
         )
         runtime = time.perf_counter() - start_time
 
-        if not ana_algorithm["is_valid_route"](result["best_route"], number_of_cities):
+        if not ana_algorithm.is_valid_route(result["best_route"], number_of_cities):
             print("Error: invalid route returned")
             continue
 
