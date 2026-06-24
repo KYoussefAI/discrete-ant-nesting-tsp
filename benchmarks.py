@@ -66,12 +66,14 @@ def load_ana_algorithm(ana_experiment):
             return importlib.import_module("ana_tsp")
         if ana_experiment == "v1":
             return importlib.import_module("experiments.ana_tsp_v1")
+        if ana_experiment == "v2":
+            return importlib.import_module("experiments.ana_tsp_v2")
     except ImportError:
         print("ANA experiment is not available yet:", ana_experiment)
         return None
 
     print("Unknown ANA experiment:", ana_experiment)
-    print('Allowed values are "baseline", "v1".')
+    print('Allowed values are "baseline", "v1", "v2".')
     return None
 
 

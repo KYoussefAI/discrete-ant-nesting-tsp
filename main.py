@@ -4,7 +4,7 @@ from benchmarks import run_selected_benchmarks
 EXPERIMENT_NAME = "baseline_parameters_v1"
 
 ANA_EXPERIMENT = "baseline"
-# allowed: "baseline", "v1"
+# allowed: "baseline", "v1", "v2"
 
 
 # True means run this benchmark.

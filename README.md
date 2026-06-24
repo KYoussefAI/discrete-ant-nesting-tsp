@@ -16,6 +16,12 @@ V1 keeps positive positional guidance and replaces random-swap exploration with
 segment inversion. The inversion length is controlled by the ANA movement
 magnitude.
 
+## V2 - Edge-Guided ANA
+
+V2 keeps V1 inversion exploration. During positive movement it identifies
+missing edges from the global-best route and uses targeted segment reversals to
+introduce selected global-best edges.
+
 ## Project Structure
 
 ```text
@@ -26,7 +32,8 @@ discrete-ana-tsp/
 |-- parameter_tuning.py
 |-- tsp_problems.py
 |-- experiments/
-|   `-- ana_tsp_v1.py
+|   |-- ana_tsp_v1.py
+|   `-- ana_tsp_v2.py
 |-- data/
 |-- docs/
 `-- results/
