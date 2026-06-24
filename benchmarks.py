@@ -68,12 +68,14 @@ def load_ana_algorithm(ana_experiment):
             return importlib.import_module("experiments.ana_tsp_v1")
         if ana_experiment == "v2":
             return importlib.import_module("experiments.ana_tsp_v2")
+        if ana_experiment == "v3":
+            return importlib.import_module("experiments.ana_tsp_v3")
     except ImportError:
         print("ANA experiment is not available yet:", ana_experiment)
         return None
 
     print("Unknown ANA experiment:", ana_experiment)
-    print('Allowed values are "baseline", "v1", "v2".')
+    print('Allowed values are "baseline", "v1", "v2", "v3".')
     return None
 
 
@@ -190,11 +192,23 @@ def calculate_summary(run_rows):
     gap_values = []
     runtime_values = []
     success_count = 0
+    two_opt_calls = 0
+    two_opt_candidate_checks = 0
+    two_opt_improvements = 0
+    total_fitness_evaluations = 0
 
     for row in run_rows:
         fitness_values.append(row["best_fitness"])
         gap_values.append(row["gap_percent"])
         runtime_values.append(row["runtime_seconds"])
+        two_opt_calls = two_opt_calls + row["two_opt_calls"]
+        two_opt_candidate_checks = (
+            two_opt_candidate_checks + row["two_opt_candidate_checks"]
+        )
+        two_opt_improvements = two_opt_improvements + row["two_opt_improvements"]
+        total_fitness_evaluations = (
+            total_fitness_evaluations + row["total_fitness_evaluations"]
+        )
         if row["success"] == "yes":
             success_count = success_count + 1
 
@@ -225,6 +239,10 @@ def calculate_summary(run_rows):
         "success_count": success_count,
         "success_percentage": 100 * success_count / len(run_rows),
         "mean_runtime_seconds": statistics.mean(runtime_values),
+        "two_opt_calls": two_opt_calls,
+        "two_opt_candidate_checks": two_opt_candidate_checks,
+        "two_opt_improvements": two_opt_improvements,
+        "total_fitness_evaluations": total_fitness_evaluations,
     }
 
     return summary
@@ -343,6 +361,10 @@ def run_one_benchmark(
 
         # One evaluation for each initialized ant, then one trial per ant per iteration.
         function_evaluations = population_size + population_size * max_iterations
+        total_fitness_evaluations = result.get(
+            "total_fitness_evaluations",
+            function_evaluations,
+        )
 
         row = {
             "experiment": experiment_name,
@@ -367,6 +389,10 @@ def run_one_benchmark(
             "case_a": result["case_a"],
             "case_b": result["case_b"],
             "general": result["general"],
+            "two_opt_calls": result.get("two_opt_calls", 0),
+            "two_opt_candidate_checks": result.get("two_opt_candidate_checks", 0),
+            "two_opt_improvements": result.get("two_opt_improvements", 0),
+            "total_fitness_evaluations": total_fitness_evaluations,
             "best_route": result["best_route"],
         }
         run_rows.append(row)
@@ -401,6 +427,10 @@ def run_one_benchmark(
         "case_a",
         "case_b",
         "general",
+        "two_opt_calls",
+        "two_opt_candidate_checks",
+        "two_opt_improvements",
+        "total_fitness_evaluations",
         "best_route",
     ]
 
@@ -426,6 +456,10 @@ def run_one_benchmark(
         "success_count",
         "success_percentage",
         "mean_runtime_seconds",
+        "two_opt_calls",
+        "two_opt_candidate_checks",
+        "two_opt_improvements",
+        "total_fitness_evaluations",
     ]
 
     write_csv(runs_file, run_rows, run_fieldnames)
