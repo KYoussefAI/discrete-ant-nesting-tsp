@@ -1,33 +1,117 @@
-# Edge-Memory ANA for TSP
+# Edge-Memory ANA for the Traveling Salesman Problem
 
-This is a small standalone Python implementation of the final Edge-Memory
-Ant Nesting Algorithm for the Traveling Salesman Problem.
+This repository contains a standalone Python implementation of **Edge-Memory
+ANA**, a discrete adaptation of the Ant Nesting Algorithm (ANA) for the
+Traveling Salesman Problem (TSP).
 
-The code is organized so the algorithm flow is easy to study first, while
-operators, local search, benchmark running, and CSV reporting live in separate
-files.
+The original ANA is a continuous swarm-intelligence metaheuristic inspired by
+the nest-building behavior of Leptothorax ants. Since the TSP is a discrete
+permutation problem, the original continuous movement equation cannot be used
+directly. This project keeps the main ANA structure while replacing continuous
+position updates with valid TSP operators based on edge memory, segment
+inversion, mini-reconstruction, simulated annealing acceptance, and 2-opt/3-opt
+local improvement.
 
-## Read This First
+## Project Context
 
-Start with:
+This work was developed as a project report implementation:
 
 ```text
-core/algorithm_flow.py
+Adaptation de l'ANA au TSP
+Version Edge-Memory ANA
 ```
 
-That file contains `run_edge_memory_ana_tsp` and the complete high-level search
-loop. It is written to read like pseudocode:
+Author: **Youssef Khaloufi**  
+Supervisor: **Pr. Khalid Jebari**  
+Academic year: **2025-2026**
 
-- initialize the search
-- update edge memory and temperature each iteration
-- generate one candidate per ant
-- accept or reject with simulated annealing
-- deposit near-best memory
-- polish new global best routes
-- record history
-- return the final result
+The full report is included in:
 
-## Project Structure
+```text
+RAPPORT_Edge_Memory_ANA_TSP_YOUSSEF_KHALOUFI_AIDS.pdf
+```
+
+## Objective
+
+The objective is not to replace specialized TSP solvers. Instead, the project
+studies how a continuous metaheuristic can be transformed into a correct,
+readable, and functional discrete method for TSP.
+
+The implementation focuses on:
+
+- preserving the main ANA ideas: population, best solution, previous position,
+  guided movement, and special stagnation cases;
+- representing each solution as a valid TSP tour;
+- using edge memory to guide search toward useful city connections;
+- adding local improvement to polish new global-best tours;
+- producing benchmark CSV files for reproducible evaluation.
+
+## Method Summary
+
+### TSP Representation
+
+A solution is represented as a permutation of cities. City `0` is fixed at the
+first position to avoid multiple equivalent representations of the same tour.
+After each operator, the tour is normalized and validated.
+
+The objective is to minimize the closed-tour distance:
+
+```text
+F(route) = distance(route[0], route[1]) + ... + distance(route[n-1], route[0])
+```
+
+### Why ANA Must Be Adapted
+
+In the original ANA, each ant has a continuous position and updates it using a
+continuous displacement. For TSP, a solution must remain a valid permutation, so
+adding a numeric displacement to a route is not meaningful.
+
+Edge-Memory ANA replaces continuous movement with permutation-safe operators:
+
+- memory-guided edge insertion;
+- random segment inversion;
+- adaptive escape when an ant is already on the global best tour;
+- mini-reconstruction when an ant repeats its previous tour.
+
+### Edge Memory
+
+The algorithm maintains a symmetric edge-memory matrix. Each value stores the
+learned usefulness of an undirected edge `(i, j)`.
+
+At each iteration:
+
+- memory evaporates slightly;
+- edges from the global-best tour receive a deposit;
+- accepted near-best tours may receive a smaller deposit;
+- high-memory edges are preferred during positive movement.
+
+This is the central adaptation: in TSP, the quality of a tour depends strongly
+on the edges it contains, so learned edge structure is more useful than direct
+continuous position movement.
+
+### Movement Rules
+
+The implementation uses three main candidate-generation cases:
+
+| Case | Situation | Discrete behavior |
+| --- | --- | --- |
+| Standard movement | Ant is neither stuck nor equal to the global best | Positive ANA movement inserts high-memory edges; negative movement applies random segment inversion. |
+| Case A | Current tour equals the global-best tour | Adaptive escape using memory-guided insertions, increasing exploration when stagnation grows. |
+| Case B | Current tour equals the previous tour | Mini-reconstruction using several high-memory edges, with fallback inversion if needed. |
+
+### Acceptance and Local Search
+
+Candidate tours are accepted when they improve the current ant fitness. Worse
+candidates may also be accepted using a simulated annealing probability, which
+helps the search escape local optima.
+
+Whenever a new global-best tour is found, it is polished using:
+
+1. strict-improvement 2-opt;
+2. genuine 3-opt;
+3. another 2-opt pass if 3-opt improves the route.
+
+## Implementation Structure
 
 ```text
 main.py
@@ -49,78 +133,80 @@ data/
     wi29.tsp
     dj38.tsp
 
+docs/
+    ANA_Ant_Nesting_Algorithm_for_Optimizing_Real-Worl.pdf
+    Differential evolution_ A handbook for global permutation-based combinatorial optimization.pdf
+    Metaheuristics_ From Design to Implementation.pdf
+
 results/
     .gitkeep
 
 tests/
     smoke_test.py
+
+tsp_problems.py
 ```
 
-`core/algorithm_flow.py` is the main algorithm file. Read this first to
-understand the full Edge-Memory ANA flow.
+Important files:
 
-`core/operators.py` contains the ANA operators: edge memory, dirty ranked
-memory cache, memory-guided movement, segment inversion, adaptive Case A,
-mini-reconstruction Case B, temperature, random ANA values, and simulated
-annealing acceptance.
-
-`core/local_search.py` contains only strict-improvement 2-opt, genuine 3-opt,
-and the polish routine used when a new global best is found.
-
-`core/tsp_utils.py` contains general TSP helpers: distances, route validation,
-tour normalization, edge helpers, segment reversal, random inversion, and
-TSPLIB coordinate loading.
-
-`experiments/benchmarks.py` contains only benchmark definitions and default
-parameters.
-
-`experiments/runner.py` loads benchmark coordinates, loops over seeds, calls
-the algorithm, collects rows, and delegates result writing.
-
-`reporting/results_writer.py` contains CSV fields, gap calculations, summary
-building, anti-overwrite protection, and printing.
-
-## Algorithm
-
-The final algorithm uses only these ideas:
-
-- route is a permutation with city `0` fixed at index `0`
-- fitness is closed-tour distance
-- maintain an undirected edge-memory matrix
-- keep a dirty cached ranking of memory edges
-- positive movement inserts high-memory missing edges by segment reversal
-- negative movement uses random segment inversion
-- Case A uses adaptive memory escape when an ant is on the global best
-- Case B uses mini reconstruction when an ant repeats its previous route
-- worse candidates can be accepted by simulated annealing
-- new global-best candidates are polished with strict 2-opt and genuine 3-opt
+- `core/algorithm_flow.py`: main Edge-Memory ANA loop, written to read like
+  pseudocode.
+- `core/operators.py`: edge memory, memory-guided movement, Case A, Case B,
+  temperature, ANA candidate generation, and simulated annealing acceptance.
+- `core/local_search.py`: strict 2-opt, genuine 3-opt, and global-best polishing.
+- `core/tsp_utils.py`: distance matrix construction, route validation, tour
+  normalization, edge helpers, segment reversal, and TSPLIB loading.
+- `experiments/benchmarks.py`: benchmark definitions and default parameters.
+- `experiments/runner.py`: benchmark execution over seeds.
+- `reporting/results_writer.py`: CSV writing, gap calculation, summary creation,
+  and overwrite protection.
 
 ## Benchmarks
 
-Included benchmarks:
+The project includes three small synthetic benchmarks and two TSPLIB-style
+instances.
 
-- `square_4`
-- `rectangle_6`
-- `grid_9`
-- `wi29`
-- `dj38`
+| Benchmark | Known optimum | Distance mode |
+| --- | ---: | --- |
+| `square_4` | `4.0` | Euclidean |
+| `rectangle_6` | `10.0` | Euclidean |
+| `grid_9` | `9.414213562373095` | Euclidean |
+| `wi29` | `27603` | TSPLIB integer-rounded Euclidean |
+| `dj38` | `6656` | TSPLIB integer-rounded Euclidean |
 
-Known optima:
+Default benchmark parameters are defined in `experiments/benchmarks.py`.
 
-- `square_4`: `4.0`
-- `rectangle_6`: `10.0`
-- `grid_9`: `9.414213562373095`
-- `wi29`: `27603`
-- `dj38`: `6656`
+## Results Reported in the Project
 
-`wi29` and `dj38` use TSPLIB integer-rounded Euclidean distances.
+The final version reached the known optimum on all retained benchmarks with the
+configured parameters.
 
-## Run
+| Benchmark | Runs | Optimum | Best | Mean | Successes | Average time |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `square_4` | 10 | 4.0 | 4.0 | 4.0 | 10/10 | 0.028 s |
+| `rectangle_6` | 10 | 10.0 | 10.0 | 10.0 | 10/10 | 0.099 s |
+| `grid_9` | 30 | 9.4142 | 9.4142 | 9.4142 | 30/30 | 1.061 s |
+| `wi29` | 10 | 27603 | 27603 | 27603 | 10/10 | 37.74 s |
+| `dj38` | 10 | 6656 | 6656 | 6656 | 10/10 | 38.96 s |
 
-From this folder:
+These results validate the implementation on the selected instances. They should
+not be interpreted as evidence that the method is stronger than specialized TSP
+solvers.
+
+## Running the Project
+
+The project uses only the Python standard library.
+
+From this directory:
 
 ```bash
 python main.py
+```
+
+The default experiment name is:
+
+```text
+edge-memory-ana-final
 ```
 
 Results are written to:
@@ -130,14 +216,72 @@ results/<benchmark>/<experiment_name>/runs.csv
 results/<benchmark>/<experiment_name>/summary.csv
 ```
 
-The default experiment name is `edge-memory-ana-final`. The runner refuses to
-overwrite existing result folders, so change `EXPERIMENT_NAME` in `main.py`
-before rerunning the full benchmark set.
+The runner refuses to overwrite an existing result folder. To rerun the full
+benchmark set, change `EXPERIMENT_NAME` in `main.py`.
 
 ## Smoke Test
+
+Run a small validation test:
 
 ```bash
 python tests/smoke_test.py
 ```
 
-The smoke test runs only `square_4` with small settings.
+The smoke test runs `square_4` with small settings and checks that the pipeline
+executes successfully.
+
+## Limitations and Future Work
+
+This project is a study of adaptation, not a production-grade TSP solver. The
+main limitation is scalability: as the number of cities increases, 3-opt becomes
+computationally expensive.
+
+Possible future improvements:
+
+- compare formally with ACO, GA, SA, and other classical metaheuristics;
+- test more TSPLIB instances;
+- study the influence of edge-memory parameters;
+- optimize or restrict local search to reduce runtime;
+- evaluate larger TSP instances with more rigorous statistical protocols.
+
+## Attribution
+
+The Ant Nesting Algorithm was originally proposed by:
+
+```text
+Deeam Najmadeen Hama Rashid,
+Tarik A. Rashid,
+Seyedali Mirjalili
+```
+
+in the paper:
+
+```text
+ANA: Ant Nesting Algorithm for Optimizing Real-World Problems
+```
+
+This repository adapts that ANA concept to the discrete TSP setting through
+edge-memory-guided permutation operators.
+
+## References
+
+Reference documents included in `docs/`:
+
+1. Deeam Najmadeen Hama Rashid, Tarik A. Rashid, and Seyedali Mirjalili. `ANA:
+   Ant Nesting Algorithm for Optimizing Real-World Problems`. Mathematics,
+   2021, 9(23), 3111. DOI: `10.3390/math9233111`.
+   File: `docs/ANA_Ant_Nesting_Algorithm_for_Optimizing_Real-Worl.pdf`.
+2. El-Ghazali Talbi. `Metaheuristics: From Design to Implementation`. John
+   Wiley & Sons, 2009.
+   File: `docs/Metaheuristics_ From Design to Implementation.pdf`.
+3. Godfrey C. Onwubolu and Donald Davendra, editors. `Differential Evolution:
+   A Handbook for Global Permutation-Based Combinatorial Optimization`.
+   Springer, 2009. DOI: `10.1007/978-3-540-92151-6`.
+   File: `docs/Differential evolution_ A handbook for global permutation-based combinatorial optimization.pdf`.
+
+Additional references cited in the project report:
+
+4. G. Reinelt. `TSPLIB - A Traveling Salesman Problem Library`. ORSA Journal on
+   Computing, 1991.
+5. G. A. Croes. `A Method for Solving Traveling-Salesman Problems`. Operations
+   Research, 1958.
