@@ -1,0 +1,9 @@
+benchmark,experiment_name,case_a_mode,case_b_mode,best_fitness,average_fitness,median_fitness,worst_fitness,average_gap_percent,success_count,success_percentage,average_runtime_seconds,case_a_operator_calls,case_a_operator_successes,case_a_operator_fallbacks,case_b_operator_calls,case_b_operator_successes,case_b_operator_fallbacks,case_b_operator_inserted_edges,case_b_operator_invalid_routes,notes
+wi29,v11-adaptiveA-caseB-control,adaptive_memory_escape,v9_original,27603,27647.1,27603.0,28044,0.1597652429083795,9,90.0,39.806291204099765,177463,177463,0,0,0,0,0,0,
+wi29,v11-adaptiveA-caseB-memory-direction,adaptive_memory_escape,memory_direction,27603,27793.9,27603.0,28590,0.6915914936782234,7,70.0,36.924282829199726,213234,213234,0,37082,37082,0,37082,0,
+wi29,v11-adaptiveA-caseB-anti-similarity,adaptive_memory_escape,anti_similarity_memory_direction,27603,27720.6,27603.0,28191,0.42604064775567874,7,70.0,37.4858773228003,172668,172668,0,60052,60052,0,60052,0,
+wi29,v11-adaptiveA-caseB-mini-reconstruction,adaptive_memory_escape,mini_reconstruction,27603,27603,27603.0,27603,0.0,10,100.0,38.75496282549975,167557,167557,0,119980,119980,0,359940,0,
+berlin52,v11-adaptiveA-caseB-control,adaptive_memory_escape,v9_original,7542,7913.2,7961.0,8210,4.921771413418192,1,10.0,110.11525201299919,639,639,0,0,0,0,0,0,
+berlin52,v11-adaptiveA-caseB-memory-direction,adaptive_memory_escape,memory_direction,7542,7886.5,7890.0,8344,4.567753911429329,1,10.0,126.5699743132991,626,626,0,14109,14109,0,14109,0,
+berlin52,v11-adaptiveA-caseB-anti-similarity,adaptive_memory_escape,anti_similarity_memory_direction,7542,7902.8,7923.0,8339,4.783876955714664,1,10.0,119.89506304490097,418,418,0,14967,14967,0,14967,0,
+berlin52,v11-adaptiveA-caseB-mini-reconstruction,adaptive_memory_escape,mini_reconstruction,7542,7766.4,7724.5,8122,2.975338106603023,1,10.0,123.02779268160047,237,237,0,20582,20582,0,61746,0,

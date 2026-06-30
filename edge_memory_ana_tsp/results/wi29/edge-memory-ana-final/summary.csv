@@ -1,0 +1,2 @@
+experiment,algorithm,benchmark,runs,population_size,max_iterations,rho,temperature_start,temperature_min,best_fitness,average_fitness,worst_fitness,best_gap_percent,average_gap_percent,worst_gap_percent,success_count,average_runtime_seconds,runs_csv,summary_csv
+edge-memory-ana-final,edge_memory_ana,wi29,10,30,6666,0.2,0.03,0.0001,27603,27603,27603,0.0,0.0,0.0,10,37.47719740867615,results/wi29/edge-memory-ana-final/runs.csv,results/wi29/edge-memory-ana-final/summary.csv

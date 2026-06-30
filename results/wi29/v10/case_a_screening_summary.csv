@@ -1,0 +1,8 @@
+experiment_name,case_a_mode,best_fitness,average_fitness,median_fitness,worst_fitness,average_gap_percent,success_count,success_percentage,average_runtime_seconds,case_a_operator_calls,case_a_operator_successes,case_a_operator_fallbacks,notes
+v10-case-a-adaptive-memory,adaptive_memory_escape,27603,27647.1,27603.0,28044,0.1597652429083795,9,90.0,38.47532711980038,177463,177463,0,
+v10-case-a-ga-lite,ga_edge_recombination_lite,27603,27647.1,27603.0,28044,0.1597652429083795,9,90.0,42.645071630899835,105755,105755,0,
+v10-case-a-v9-control,v9_inversion,27603,27647.1,27603.0,27750,0.15976524290837954,7,70.0,36.716878350399384,0,0,0,
+v10-case-a-double-bridge,double_bridge_escape,27603,27691.2,27603.0,28044,0.319530485816759,8,80.0,29.03313903330036,788367,788367,0,
+v10-case-a-adaptive-safe,adaptive_memory_escape_safe,27603,27705.9,27603.0,28044,0.3727855667862189,7,70.0,41.17192465920052,63603,63603,0,
+v10-case-a-memory-complement,memory_complement,27603,27750,27603.0,28044,0.5325508096945984,6,60.0,37.86279381959976,222151,222151,0,
+v10-case-a-suspicious-edge,suspicious_edge_replacement,27603,27834,27676.5,28737,0.8368655580915118,5,50.0,38.555102324599645,64165,64165,0,

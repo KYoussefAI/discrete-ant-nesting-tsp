@@ -1,0 +1,2 @@
+benchmark,experiment_name,case_a_mode,case_b_mode,best_fitness,average_fitness,median_fitness,worst_fitness,average_gap_percent,success_count,success_percentage,average_runtime_seconds,case_a_operator_calls,case_a_operator_successes,case_a_operator_fallbacks,case_b_operator_calls,case_b_operator_successes,case_b_operator_fallbacks,case_b_operator_inserted_edges,case_b_operator_invalid_routes,notes
+wi29,v11-adaptiveA-caseB-control,adaptive_memory_escape,v9_original,27603,27647.1,27603.0,28044,0.1597652429083795,9,90.0,39.806291204099765,177463,177463,0,0,0,0,0,0,

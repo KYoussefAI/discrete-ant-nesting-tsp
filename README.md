@@ -120,7 +120,6 @@ BENCHMARK_MENU = {
     "wi29": True,
     "dj38": False,
     "berlin52": False,
-    "qa194": False,
 }
 ```
 
@@ -187,7 +186,6 @@ TSPLIB problems present in `data/`:
 - `wi29`
 - `dj38`
 - `berlin52`
-- `qa194`
 
 The TSPLIB loader accepts `EUC_2D` instances. For configured TSPLIB benchmarks,
 the implementation uses integer-rounded edge distances.

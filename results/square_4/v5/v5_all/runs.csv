@@ -1,0 +1,11 @@
+experiment,ana_experiment,benchmark,seed,number_of_cities,population_size,max_iterations,rho,temperature_start,temperature_min,two_opt_trigger_temperature_start,two_opt_trigger_temperature_min,function_evaluations,best_fitness,known_optimum,absolute_gap,gap_percent,success,runtime_seconds,accepted_worse,rejected_worse,case_a,case_b,general,three_opt_calls,three_opt_edge_triples_checked,three_opt_reconnections_checked,three_opt_improvements,two_opt_calls,two_opt_trigger_attempts,two_opt_trigger_accepted,two_opt_trigger_rejected,two_opt_forced_calls,two_opt_probabilistic_calls,two_opt_candidate_checks,two_opt_improvements,total_fitness_evaluations,best_route
+v5_all,v5,square_4,1,4,10,100,0.1,0.1,0.001,0.1,0.001,1010,4.0,4.0,0.0,0.0,yes,0.014585894999981974,34,893,927,9,64,0,0,0,0,0,0,0,0,0,0,0,0,1010,"[0, 1, 2, 3]"
+v5_all,v5,square_4,2,4,10,100,0.1,0.1,0.001,0.1,0.001,1010,4.0,4.0,0.0,0.0,yes,0.014180695001414279,36,894,930,5,65,0,0,0,0,0,0,0,0,0,0,0,0,1010,"[0, 1, 2, 3]"
+v5_all,v5,square_4,3,4,10,100,0.1,0.1,0.001,0.1,0.001,1010,4.0,4.0,0.0,0.0,yes,0.014503495000099065,32,887,919,8,73,0,0,0,0,0,0,0,0,0,0,0,0,1010,"[0, 1, 2, 3]"
+v5_all,v5,square_4,4,4,10,100,0.1,0.1,0.001,0.1,0.001,1010,4.0,4.0,0.0,0.0,yes,0.014363594998940243,24,909,933,4,63,0,0,0,0,0,0,0,0,0,0,0,0,1010,"[0, 1, 2, 3]"
+v5_all,v5,square_4,5,4,10,100,0.1,0.1,0.001,0.1,0.001,1010,4.0,4.0,0.0,0.0,yes,0.014348595001138165,35,885,920,7,73,0,0,0,0,0,0,0,0,0,0,0,0,1010,"[0, 1, 2, 3]"
+v5_all,v5,square_4,6,4,10,100,0.1,0.1,0.001,0.1,0.001,1010,4.0,4.0,0.0,0.0,yes,0.01382709499921475,32,900,932,6,62,0,0,0,0,0,0,0,0,0,0,0,0,1010,"[0, 1, 2, 3]"
+v5_all,v5,square_4,7,4,10,100,0.1,0.1,0.001,0.1,0.001,1010,4.0,4.0,0.0,0.0,yes,0.014792994001254556,41,851,892,9,99,0,0,0,0,0,0,0,0,0,0,0,0,1010,"[0, 1, 2, 3]"
+v5_all,v5,square_4,8,4,10,100,0.1,0.1,0.001,0.1,0.001,1010,4.0,4.0,0.0,0.0,yes,0.013667894998434349,22,914,936,9,55,0,0,0,0,0,0,0,0,0,0,0,0,1010,"[0, 1, 2, 3]"
+v5_all,v5,square_4,9,4,10,100,0.1,0.1,0.001,0.1,0.001,1010,4.0,4.0,0.0,0.0,yes,0.0139794949991483,29,898,927,7,66,0,0,0,0,0,0,0,0,0,0,0,0,1010,"[0, 1, 2, 3]"
+v5_all,v5,square_4,10,4,10,100,0.1,0.1,0.001,0.1,0.001,1010,4.0,4.0,0.0,0.0,yes,0.01404749500034086,28,902,930,6,64,0,0,0,0,0,0,0,0,0,0,0,0,1010,"[0, 1, 2, 3]"

@@ -1,0 +1,4 @@
+trial_number,changed_parameter,ana_experiment,max_iterations,population_size,rho,temperature_start,temperature_min,archive_size,archive_min_edge_diversity,archive_near_best_gap,total_ant_updates,mean_fitness,best_gap_percent,mean_gap_percent,worst_gap_percent,gap_standard_deviation,score,accepted_as_current,new_global_best,tuning_temperature,runtime_seconds,cache_hit
+0,initial,v6,2,20,0.1,0.01,0.001,5,0.25,0.05,40,4.0,0.0,0.0,0.0,0.0,0.0,yes,yes,,0.007335299997066613,no
+1,archive_min_edge_diversity,v6,2,20,0.1,0.01,0.001,5,0.2,0.05,40,4.0,0.0,0.0,0.0,0.0,0.0,yes,no,5.0,0.007058499999402557,no
+2,archive_min_edge_diversity,v6,2,20,0.1,0.01,0.001,5,0.25,0.05,40,4.0,0.0,0.0,0.0,0.0,0.0,yes,no,0.001,0.0,yes

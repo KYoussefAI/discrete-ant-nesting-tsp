@@ -63,7 +63,6 @@ TSPLIB instances are present in `data/`:
 - `wi29`
 - `dj38`
 - `berlin52`
-- `qa194`
 
 Known optimum values are stored in `benchmarks.py` and used for comparison.
 The loader accepts `EUC_2D` files, and configured TSPLIB benchmarks use
